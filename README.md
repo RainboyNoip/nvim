@@ -11,3 +11,22 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 - `tt`
 
 
+
+## 配置dap
+
+
+在`lua/config/lazy.lua`这里添加`{ import = "lazyvim.plugins.extras.dap.core" }`
+
+```
+require("lazy").setup({
+  spec = {
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "plugins" },
+  },
+})
+```
+
+配置`cpp`,`dap.configurations.cpp`
+
+No configuration found for `cpp`. You need to add configs to `dap.configurations.cpp` (See `:h dap-configuration`)

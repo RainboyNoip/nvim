@@ -55,7 +55,6 @@ local params = function(args, snip, old_state, ...)
 end
 
 local snippets = {
-    require("snippets.template"),
     -- s(
     --     "func",
     --     fmt(
@@ -115,6 +114,8 @@ local snippets = {
     ),
 }
 
+vim.list_extend(snippets,require("snippets.template"))
 vim.list_extend(snippets,require("snippets.for"))
+vim.list_extend(snippets,require("snippets.algo"))
 
 return snippets

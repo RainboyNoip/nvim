@@ -27,7 +27,7 @@ return {
             choice=i(1,"n")
         })
     ),
-    -- 2d array
+    -- f2
     s("ff",
         fmt(
         [[
@@ -40,7 +40,7 @@ return {
             snip=sn(1,{t(" "),i(1,"i"),t(" , "),i(2,"n"),t(" ")})
         })
     ),
-    -- 3d array
+    -- f3
     s("f3",
         fmt(
         [[
@@ -52,6 +52,21 @@ return {
             pos=i(0),
             snip=sn(1,{t(" "),i(1,"i"),t(" , "),i(2,"s"),t(" , "),i(3,"t")})
         })
+    ),
+    -- 2d array
+    s("2f",
+        fmt(
+        [[
+            FF(i,n){{
+                FF(j,m) {{
+                    {pos}
+                }}
+            }}
+        ]],
+        {
+            pos=i(0),
+        })
     )
+    -- 3d array
 
 }

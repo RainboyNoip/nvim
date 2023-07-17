@@ -9,11 +9,22 @@ local file = io.open("/home/rainboy/mycode/RainboyNoip/algorithms/template.cpp",
 local content = file:read("*a")
 file:close()
 
+file = io.open("/home/rainboy/mycode/RainboyNoip/algorithms/template_normal.cpp", "r")
+local content_normal = file:read("*a")
+file:close()
+
 local function getCurrentTime()
     local currentTime = os.date("%Y-%m-%d %H:%M:%S")
     return currentTime
 end
 
-return  s("tt",
+return { 
+    -- template template
+    s("tt",
     fmt(content,{ time =f(getCurrentTime) , ipos = i(0)})
-)
+    ),
+    -- template normal
+    s("tn",
+    fmt(content_normal,{ time =f(getCurrentTime) , ipos = i(0)})
+    )
+}
