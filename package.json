@@ -1,0 +1,14 @@
+{
+    "name": "rainboy-snippets",
+    "engines": {
+        "vscode": "^0.0.1"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": ["markdown", "rmd"],
+                "path": "./snippets/markdown.json"
+            }
+        ]
+    }
+}

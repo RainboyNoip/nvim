@@ -1,0 +1,7 @@
+{
+    "Insert code block": {
+        "prefix": "f",
+        "body": ["```${1:plantext}", "$0", "```"],
+        "description": "Insert fenced code block"
+    }
+}

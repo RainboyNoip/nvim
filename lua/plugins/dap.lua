@@ -149,17 +149,17 @@ return {
                 if( dap.session()) then
                     dap.toggle_breakpoint()
                 else
-                    vim.api.nvim_command("normal! b")
+                    return "b"
                 end
-            end, desc = "Step Over" ,mode = "n"},
+            end, desc = "Step Over" ,mode = "n", expr = true},
             { "r", function()
                 local dap = require("dap")
                 if( dap.session()) then
                     dap.restart()
                 else
-                    vim.api.nvim_command("normal! r")
+                    return "r"
                 end
-            end, desc = "Step Over" ,mode = "n"},
+            end, desc = "Step Over" ,mode = "n", expr= true},
             { "u", function()
                 local dap = require("dap")
                 if( dap.session()) then
