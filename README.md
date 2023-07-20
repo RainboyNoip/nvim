@@ -8,25 +8,20 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 基于[LuaSnip](https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md) 的`snippets`是整个配置的核心
 
 
-- `tt`
-
-
+- `tt` template with algorithms library
+- `tn` template normal
 
 ## 配置dap
 
-
 在`lua/config/lazy.lua`这里添加`{ import = "lazyvim.plugins.extras.dap.core" }`
+然后在`plugins/dap.lua`进行相配的配置
 
-```
-require("lazy").setup({
-  spec = {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "lazyvim.plugins.extras.dap.core" },
-    { import = "plugins" },
-  },
-})
-```
+快捷键:
 
-配置`cpp`,`dap.configurations.cpp`
 
-No configuration found for `cpp`. You need to add configs to `dap.configurations.cpp` (See `:h dap-configuration`)
+- 结束 F4
+- 启动调试/继续执行 F5
+- 切换断点 F6
+- `step_into` F7
+- `step out` F8
+- `run to cursor` F9

@@ -115,7 +115,10 @@ return {
             { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
             { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
             -- 结束
-            { "<F4>", function() require("dap").terminate() end, desc = "Terminate" },
+            { "<F4>", function() 
+                require("dap").terminate()
+                require("dapui").close()
+            end, desc = "Terminate" },
             -- 启动调试/继续执行
             { "<F5>", function() require("dap").continue() end, desc = "Continue" },
             -- 切换断点
@@ -124,8 +127,57 @@ return {
             { "<F7>", function() require("dap").step_into() end, desc = "Step Into" },
             -- step out
             { "<F8>", function() require("dap").step_over() end, desc = "Step Over" },
+            { "<F9>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
+            { "n", function()
+                local dap = require("dap")
+                if( dap.session()) then
+                    dap.step_over()
+                else
+                    return "n"
+                end
+            end, desc = "Step Over" ,mode = "n", expr = true},
+            { "i", function()
+                local dap = require("dap")
+                if( dap.session()) then
+                    dap.step_into()
+                else
+                    return "i"
+                end
+            end, desc = "Step Into" ,mode = "n",expr = true},
+            { "b", function()
+                local dap = require("dap")
+                if( dap.session()) then
+                    dap.toggle_breakpoint()
+                else
+                    vim.api.nvim_command("normal! b")
+                end
+            end, desc = "Step Over" ,mode = "n"},
+            { "r", function()
+                local dap = require("dap")
+                if( dap.session()) then
+                    dap.restart()
+                else
+                    vim.api.nvim_command("normal! r")
+                end
+            end, desc = "Step Over" ,mode = "n"},
+            { "u", function()
+                local dap = require("dap")
+                if( dap.session()) then
+                    dap.run_to_cursor()
+                else
+                    return "u"
+                end
+            end, desc = "run to cursor" ,mode = "n",expr = true},
         },
-    }
+    },
+    -- virtual text for the debugger
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      opts = {},
+      config=function (_,opts)
+          require("nvim-dap-virtual-text").setup(opts)
+      end
+    },
 
 
 }
