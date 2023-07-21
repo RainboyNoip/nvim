@@ -41,7 +41,7 @@ return {
       -- nvim cmp dictionary --
       vim.o.spelllang = "en"
       local word_path = vim.fn.stdpath("config") .. "/dictionary/google-10000-english-no-swears.txt"
-      print(word_path)
+      -- print(word_path)
       dict.switcher({
           spelllang = {
               en = word_path
@@ -66,12 +66,12 @@ return {
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- this way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
+          if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
+          elseif cmp.visible() then
+            cmp.select_next_item()
           elseif has_words_before() then
             cmp.complete()
           else

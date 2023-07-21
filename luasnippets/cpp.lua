@@ -112,6 +112,28 @@ local snippets = {
             { i(1,"iostream"),i(0) }
         )
     ),
+
+    s(
+        {
+            trig = "sc%s+([%w_ ]+)",
+            -- trig="sc((\\S+ )*\\S+)( )?",
+            regTrig = true,
+            trigEngine="pattern",
+            name="test",
+            desc="test"
+        },
+        f( function (args,snip)
+            -- print(snip.captures[1])
+            local str1 = ""
+            local str2 = ""
+            for word in string.gmatch(snip.captures[1],"%S+") do
+                str1 = str1 .. "%d"
+                str2 = str2 .. ',&' .. word;
+            end
+            return string.format('scanf("%s"%s);',str1,str2);
+
+        end,{})
+    )
 }
 
 vim.list_extend(snippets,require("snippets.template"))
