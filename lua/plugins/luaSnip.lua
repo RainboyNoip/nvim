@@ -6,19 +6,23 @@ return {
     {
         "L3MON4D3/LuaSnip",
         dependencies = {
-            "rafamadriz/friendly-snippets",
+            -- "rafamadriz/friendly-snippets",
             -- config = function()
                 --   require("luasnip.loaders.from_vscode").lazy_load()
                 -- end,
         },
-        config = function ()
-            require("luasnip.loaders.from_vscode").lazy_load({ exclude = {"cpp"} })
+        opts = {
+            history = false,
+            delete_check_events = {"TextChanged","InsertLeave"},
+            update_events = {"TextChanged", "TextChangedI"}
+        },
+        config = function (_,opts)
+            -- print(opts)
+            require("luasnip").setup(opts)
+            -- require("luasnip.loaders.from_vscode").lazy_load({ exclude = {"cpp"} })
+            require("luasnip.loaders.from_snipmate").lazy_load({path = vim.fn.stdpath('config') })
             require("luasnip.loaders.from_lua").load()
         end,
-        opts = {
-            history = true,
-            delete_check_events = "TextChanged",
-        },
         -- stylua: ignore
         keys = {
             {

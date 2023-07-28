@@ -1,0 +1,7 @@
+{
+    "mem1": {
+        "prefix": "me",
+        "body": ["memset(${1:a},inf,sizeof($1));"],
+        "description": "memset(a1,inf,sizeof(a1));"
+    }
+}

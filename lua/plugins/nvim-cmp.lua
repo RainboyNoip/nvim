@@ -70,6 +70,8 @@ return {
             -- this way you will only jump inside the snippet region
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
+            local termcodes = vim.api.nvim_replace_termcodes('<C-g>u', true, true, true)
+            vim.api.nvim_feedkeys(termcodes, 'i', true)
           elseif cmp.visible() then
             cmp.select_next_item()
           elseif has_words_before() then
