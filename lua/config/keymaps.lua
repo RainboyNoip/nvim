@@ -3,6 +3,11 @@
 -- Add any additional keymaps here
 local Util = require("lazyvim.util")
 
+-- short cut key
+
+vim.api.nvim_set_keymap("i", "<c-l>", "<esc>A", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<c-h>", "<esc>I", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap("n", "<F2>", ":Neotree toggle<cr>", { noremap = true, silent = true })
 
 -- qq 快速保存退出

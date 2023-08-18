@@ -20,21 +20,36 @@ return {
         --     single_file_support = true
         -- }
     require("lspconfig").ccls.setup({
-        single_file_support = true,
+        -- single_file_support = true,
         init_options = {
             cache = {
                 directory = "/tmp/ccls-cache"
             },
-            compilationDatabaseDirectory = "build";
+            client = {
+                snippetSupport = true
+            },
+            completion = {
+                placeholder = true
+            },
+            compilationDatabaseDirectory = "build",
             index = {
-                threads = 0;
-            };
+                threads = 0
+            },
             clang = {
                 -- excludeArgs = { "-frounding-math"} ;
                 extraArgs = {"-std=c++20","-DDEBUG"}
-            };
+            },
         }
     })
     end
   },
+
+
+  -- "ray-x/lsp_signature.nvim",
+  -- {
+  --     "ray-x/lsp_signature.nvim",
+  --     event = "VeryLazy",
+  --     opts = {},
+  --     config = function(_, opts) require'lsp_signature'.setup(opts) end
+  -- }
 }

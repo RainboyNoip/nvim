@@ -29,6 +29,25 @@ return {
             return string.format('int %s;',string.sub(str1,1,-2));
         end,{})
     ),
+    -- std::cin
+    s(
+        {
+            trig = "ci%s+([%w_ ]+)",
+            -- trig="sc((\\S+ )*\\S+)( )?",
+            regTrig = true,
+            trigEngine="pattern",
+            name="in.read(a,b,c)",
+            desc="in.read(a,b,c)"
+        },
+        f( function (args,snip)
+            -- print(snip.captures[1])
+            local str1 = ""
+            for word in string.gmatch(snip.captures[1],"%S+") do
+                str1 = str1 .. ' >> ' ..  word;
+            end
+            return string.format('cin%s;',str1);
+        end,{})
+    ),
     -- fastIo in
     s(
         {

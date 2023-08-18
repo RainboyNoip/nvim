@@ -118,5 +118,6 @@ vim.list_extend(snippets,require("snippets.io"))
 vim.list_extend(snippets,require("snippets.template"))
 vim.list_extend(snippets,require("snippets.for"))
 vim.list_extend(snippets,require("snippets.algo"))
+vim.list_extend(snippets,require("snippets.oth"))
 
 return snippets

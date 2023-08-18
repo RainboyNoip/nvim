@@ -125,7 +125,7 @@ return {
         ]],
         {
             pos=i(0),
-            func0 = f(function(args,snip) return snip.captures[2]; end,{}),
+            func0 = f(function(args,snip) return snip.captures[1]; end,{}),
             func1 = f(function(args,snip) return snip.captures[2]; end,{}),
             func2 = f(function(args,snip) return snip.captures[3]; end,{})
         })
