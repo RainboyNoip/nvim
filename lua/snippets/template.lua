@@ -30,13 +30,14 @@ local function getCurrentTime()
     return currentTime
 end
 
-return { 
-    -- template template
-    s("tt",
-    fmt(content,{ time =f(getCurrentTime) , ipos = i(0)})
-    ),
-    -- template normal
-    s("tn",
-    fmt(content_normal,{ time =f(getCurrentTime) , ipos = i(0)})
-    )
-}
+-- return { 
+--     -- template template
+--     s("tt",
+--     fmt(content,{ time =f(getCurrentTime) , ipos = i(0)})
+--     ),
+--     -- template normal
+--     s("tn",
+--     fmt(content_normal,{ time =f(getCurrentTime) , ipos = i(0)})
+--     )
+-- }
+return {}
