@@ -1,0 +1,14 @@
+
+{
+    "outformat": {
+        "prefix": "out",
+        "body": ["settings.outformat=\"${1:svg}\";"],
+        "description": "set output format"
+    },
+    "unitsize": {
+        "prefix": "unit",
+        "body": ["unitsize(1cm);",""],
+        "description": "unitsize(1cm)"
+    }
+
+}
