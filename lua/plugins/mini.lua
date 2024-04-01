@@ -53,7 +53,7 @@ return {
             { "<leader>mr",function () MiniMap.refresh() end, desc = "mini-map refresh" },
             { "<leader>ms",function () MiniMap.toggle_side() end, desc = "mini-map toggle side" },
             { "<leader>mt",function () MiniMap.toggle() end, desc = "mini-map toggle" },
-            { "<F3>",function () MiniMap.toggle() end, desc = "mini-map toggle" },
+            -- { "<F3>",function () MiniMap.toggle() end, desc = "mini-map toggle" },
             -- encode = MiniMap.gen_encode_symbols.dot()
         },
 

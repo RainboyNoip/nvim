@@ -1,28 +1,30 @@
 return {
-    -- {
-    --     "rafamadriz/friendly-snippets",
-    --     enabled = false
-    -- },
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = {
-            -- "rafamadriz/friendly-snippets",
-            -- config = function()
-                --   require("luasnip.loaders.from_vscode").lazy_load()
-                -- end,
-        },
-        opts = {
-            history = false,
-            delete_check_events = {"TextChanged","InsertLeave"},
-            update_events = {"TextChanged", "TextChangedI"}
-        },
-        config = function (_,opts)
-            -- print(opts)
-            require("luasnip").setup(opts)
-            -- require("luasnip.loaders.from_vscode").lazy_load({ exclude = {"cpp"} })
-            require("luasnip.loaders.from_snipmate").lazy_load({path = vim.fn.stdpath('config') })
-            require("luasnip.loaders.from_lua").load()
-        end,
+	-- {
+	--     "rafamadriz/friendly-snippets",
+	--     enabled = false
+	-- },
+	{
+		"L3MON4D3/LuaSnip",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			config = function()
+				-- 加上exclude 确实不会加载cpp了,但是也不会加载我自己的cpp的snippets
+				-- require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "cpp" } })
+			end,
+		},
+		opts = {
+			history = false,
+			delete_check_events = { "TextChanged", "InsertLeave" },
+			update_events = { "TextChanged", "TextChangedI" },
+		},
+		config = function(_, opts)
+			-- print(opts)
+			require("luasnip").setup(opts)
+			-- require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "cpp" } })
+			require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_snipmate").lazy_load({ path = vim.fn.stdpath("config") })
+			require("luasnip.loaders.from_lua").load()
+		end,
         -- stylua: ignore
         keys = {
             {
@@ -61,8 +63,7 @@ return {
                 end
             end,mode={"i","s"}}
         },
-
-    }
+	},
 }
 -- vim.keymap.set({"i", "s"}, "<C-E>", function()
 -- 	if ls.choice_active() then

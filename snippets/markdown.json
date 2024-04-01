@@ -3,5 +3,10 @@
         "prefix": "f",
         "body": ["```${1:plantext}", "$0", "```"],
         "description": "Insert fenced code block"
+    },
+    "include": {
+        "prefix": "inc",
+        "body": ["```cpp", "<%- include(\"./${0:1.cpp}\") _%>", "```"],
+        "description": "Insert fenced code block"
     }
 }

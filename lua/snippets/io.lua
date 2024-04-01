@@ -45,7 +45,7 @@ return {
             for word in string.gmatch(snip.captures[1],"%S+") do
                 str1 = str1 .. ' >> ' ..  word;
             end
-            return string.format('cin%s;',str1);
+            return string.format('std::cin%s;',str1);
         end,{})
     ),
     -- fastIo in

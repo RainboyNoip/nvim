@@ -6,7 +6,22 @@
     },
     "inc": {
         "prefix":"inc",
-        "body":["#include <${1:iostream}>"],
+        "body":["#include <${1:bits/stdc++.h}>"],
         "description":"include"
+    },
+    "dbg" :{
+        "prefix":"dbg",
+        "body":["#ifdef DEBUG","$0","#endif"],
+        "description":"DEBUG marco"
+    },
+    "us" :{
+        "prefix":"us",
+        "body":["using namespace std;","$0"],
+        "description":"using namespace std;"
+    },
+    "coe" :{
+        "prefix":"coe",
+        "body":["std::cout << $0 << \"\\n\";"],
+        "description":"cout endl"
     }
 }
