@@ -6,11 +6,11 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
-			"rafamadriz/friendly-snippets",
-			config = function()
-				-- 加上exclude 确实不会加载cpp了,但是也不会加载我自己的cpp的snippets
-				-- require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "cpp" } })
-			end,
+			-- "rafamadriz/friendly-snippets",
+			-- config = function()
+			-- 	-- 加上exclude 确实不会加载cpp了,但是也不会加载我自己的cpp的snippets
+			-- 	-- require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "cpp" } })
+			-- end,
 		},
 		opts = {
 			history = false,

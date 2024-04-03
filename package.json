@@ -6,10 +6,10 @@
     "contributes": {
         "snippets": [
             {
-            {
                 "language": "asy",
                 "path": "./snippets/asy.json"
             },
+            {
                 "language": [
                     "plaintext",
                     "markdown",
