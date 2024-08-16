@@ -1,4 +1,10 @@
 {
+    "include code":{
+        "prefix":"inc",
+        "body" : ["```cpp","<%- include(\"${1}\") _%>","```"],
+        "description": "包含代码"
+    },
+
     "header 1": {
         "prefix": "h1",
         "body": ["# ${0}"],
@@ -387,4 +393,5 @@
         "body": ["${1}<sup>${0}"],
         "description": "Create a superscript."
     }
+
 }
