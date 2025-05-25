@@ -8,14 +8,20 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
     spec = {
-        -- add LazyVim and import its plugins
-        { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+        -- 1. LazyVim 核心插件
+        {
+            "LazyVim/LazyVim",
+            import = "lazyvim.plugins",
+            priority = 1000, -- 确保最先加载
+        },
+        -- 2. LazyVim extras
         { import = "lazyvim.plugins.extras.dap.core" },
         -- import any extras modules here
         -- { import = "lazyvim.plugins.extras.lang.typescript" },
         -- { import = "lazyvim.plugins.extras.lang.json" },
         -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
         -- import/override with your plugins
+         -- 3. 我的自定义插件
         { import = "plugins" },
     },
     git = {
