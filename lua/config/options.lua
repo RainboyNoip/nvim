@@ -5,4 +5,6 @@
 local opt = vim.opt
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.shiftwidth = 4
-opt.clipboard = "unnamed"
+
+-- 我现在需要lazyvim的默认配置了 +=unnamedplus
+-- opt.clipboard = "unnamed"

@@ -4,6 +4,11 @@ return {
 	{
 		"ellisonleao/gruvbox.nvim",
 		enable = false,
+		config = function()
+			require("gruvbox").setup({
+				transparent_mode = true,
+			})
+		end,
 	},
 	{
 		"sainnhe/gruvbox-material",
@@ -34,10 +39,10 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			-- colorscheme = "gruvbox",
+			colorscheme = "gruvbox",
 			-- colorscheme = "carbonfox",
 			-- colorscheme = "terafox",
-			colorscheme = "gruvbox-material",
+			-- colorscheme = "gruvbox-material",
 		},
 	},
 }

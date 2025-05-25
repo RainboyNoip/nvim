@@ -7,6 +7,10 @@ vim.cmd([[autocmd BufNewFile,BufRead *.asy setlocal filetype=asy ]])
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+require("fileSnip").setup({
+    -- 当前nevim配置路径所在的目录下的 oiSnippets
+    snippetPath = vim.fn.stdpath("config") .. "/oiSnippets/",
+})
 
 -- Asymptote LSP
 -- local lspconfig = require 'lspconfig'
