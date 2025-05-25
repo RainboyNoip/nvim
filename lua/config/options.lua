@@ -8,3 +8,11 @@ opt.shiftwidth = 4
 
 -- 我现在需要lazyvim的默认配置了 +=unnamedplus
 -- opt.clipboard = "unnamed"
+
+
+
+-- enable fold
+opt.foldenable = true
+opt.foldmethod = "marker" -- use marker to fold code
+-- opt.foldmarker = { "{", "}" }
+opt.foldlevel = 99

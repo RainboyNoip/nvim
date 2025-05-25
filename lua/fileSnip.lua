@@ -28,7 +28,13 @@ function InsertSnippet()
 						-- print("path", path)
 						local lines = vim.fn.readfile(path)
 						if lines then
+							-- 添加 //-- filename {{{ 和 }}} 到文件的开头和结尾
+							local filename = vim.fn.fnamemodify(path, ":t")
+							table.insert(lines, 1, "//-- ".. filename .." {{{")
+							table.insert(lines, "//-- }}}")
+							
 							-- 切换回原始窗口
+
 							vim.api.nvim_set_current_win(winid)
 							-- 检查缓冲区是否可修改
 							if vim.api.nvim_buf_get_option(bufnr, "modifiable") then
@@ -47,6 +53,15 @@ function InsertSnippet()
 									local last_line = lines[#lines]
 									local new_col = vim.str_utfindex(last_line or "")
 									vim.api.nvim_win_set_cursor(winid, { new_row, new_col })
+									
+									-- 对上面插入的行，执行格式化操作
+									-- vim.api.nvim_command(start_row .. "," .. new_row .. "normal! =")
+									-- 对上面插入的行，执行格式化操作
+									local format_range_cmd = string.format("%d,%dnormal! ==", start_row, new_row)
+									vim.cmd(format_range_cmd)
+
+
+
 									-- 新建一行空行, 并将光标插入到当前空行的最开始
 									vim.api.nvim_buf_set_lines(bufnr, new_row, new_row, false, { "" })
 									vim.api.nvim_win_set_cursor(winid, { new_row + 1, 0 })
@@ -107,10 +122,10 @@ function M.setup(opts)
 		InsertSnippet()
 	end, {})
 
-	-- 绑定快捷键 F9 所有模式
-	vim.api.nvim_set_keymap("n", "<F9>", ":Choose<CR>", { noremap = true, silent = true })
-	-- 绑定快捷键 F9 insert 模式
-	vim.api.nvim_set_keymap("i", "<F9>", "<C-o>:Choose<CR>", { noremap = true, silent = true })
+	-- 绑定快捷键 F1 所有模式
+	vim.api.nvim_set_keymap("n", "<F1>", ":Choose<CR>", { noremap = true, silent = true })
+	-- 绑定快捷键 F1 insert 模式
+	vim.api.nvim_set_keymap("i", "<F1>", "<C-o>:Choose<CR>", { noremap = true, silent = true })
 	-- 绑定快捷键 F1 所有模式
 	vim.api.nvim_set_keymap("n", "<F1>", ":Choose<CR>", { noremap = true, silent = true })
 end
