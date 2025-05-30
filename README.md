@@ -25,3 +25,9 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 - `step_into` F7
 - `step out` F8
 - `run to cursor` F9
+- `<leader>a` toggle folder
+- `F9` open float termial
+
+## oiSnippets
+
+这个文件是用来配置`oiSnippets`的, `<F1>`可以快速插入`oiSnippets`的模板

@@ -14,7 +14,11 @@ vim.api.nvim_set_keymap("n", "<F2>", ":Neotree toggle<cr>", { noremap = true, si
 vim.api.nvim_set_keymap("n","qq",":wq<cr>",{noremap = true, silent = true})
 
 -- float terminal
-vim.keymap.set("n", "<F1>", function() Util.float_term() end, { desc = "Terminal (cwd)" })
-vim.keymap.set("t", "<F1>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+vim.keymap.set("n", "<F9>", function() Util.float_term() end, { desc = "Terminal (cwd)" })
+vim.keymap.set("t", "<F9>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
+
+-- fold
+--- nnoremap <space> za
+vim.keymap.set("n", "<leader>a" , "za", { noremap = true, silent = true })
 
