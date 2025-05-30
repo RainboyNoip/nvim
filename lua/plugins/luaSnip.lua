@@ -25,44 +25,44 @@ return {
 			require("luasnip.loaders.from_snipmate").lazy_load({ path = vim.fn.stdpath("config") })
 			require("luasnip.loaders.from_lua").load()
 		end,
-        -- stylua: ignore
-        keys = {
-            {
-                "<tab>",
-                function()
-                    return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-                end,
-                expr = true, silent = true, mode = "i",
-            },
-            { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-            { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-            { "<c-j>", 
-                function() 
-                    local ls = require("luasnip")
-                    if (ls.expand_or_jumpable()) then
-                        ls.jump(1)
-                    else
-                        return "<c-j>"
-                    end
-                end,
-                expr = true, silent = true,mode = {"i","s"} },
-            { "<c-k>", 
-                function() 
-                    local ls = require("luasnip")
-                    if (ls.jumpable(-1)) then
-                        ls.jump(-1)
-                    else
-                        return "<c-k>"
-                    end
-                end,
-                expr = true, silent = true, mode = "s" },
-            {"<C-E>", function ()
-                local ls = require("luasnip")
-                if( ls.choice_active() ) then
-                    ls.change_choice(1)
-                end
-            end,mode={"i","s"}}
-        },
+		-- stylua: ignore
+		-- keys = {
+		--     {
+		--         "<tab>",
+		--         function()
+		--             return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+		--         end,
+		--         expr = true, silent = true, mode = "i",
+		--     },
+		--     { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+		--     { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+		--     { "<c-j>",
+		--         function()
+		--             local ls = require("luasnip")
+		--             if (ls.expand_or_jumpable()) then
+		--                 ls.jump(1)
+		--             else
+		--                 return "<c-j>"
+		--             end
+		--         end,
+		--         expr = true, silent = true,mode = {"i","s"} },
+		--     { "<c-k>",
+		--         function()
+		--             local ls = require("luasnip")
+		--             if (ls.jumpable(-1)) then
+		--                 ls.jump(-1)
+		--             else
+		--                 return "<c-k>"
+		--             end
+		--         end,
+		--         expr = true, silent = true, mode = "s" },
+		--     {"<C-E>", function ()
+		--         local ls = require("luasnip")
+		--         if( ls.choice_active() ) then
+		--             ls.change_choice(1)
+		--         end
+		--     end,mode={"i","s"}}
+		-- },
 	},
 }
 -- vim.keymap.set({"i", "s"}, "<C-E>", function()
