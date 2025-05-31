@@ -14,32 +14,37 @@ return {
 			},
 		},
 		config = function()
-			-- require("lspconfig").clangd.setup{
-			--     cmd = {"clangd"},
-			--     single_file_support = true
-			-- }
-			require("lspconfig").ccls.setup({
-				-- single_file_support = true,
-				init_options = {
-					cache = {
-						directory = "/tmp/ccls-cache",
-					},
-					client = {
-						snippetSupport = true,
-					},
-					completion = {
-						placeholder = true,
-					},
-					compilationDatabaseDirectory = "build",
-					index = {
-						threads = 0,
-					},
-					clang = {
-						-- excludeArgs = { "-frounding-math"} ;
-						extraArgs = { "-std=c++20", "-DDEBUG" },
-					},
-				},
-			})
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
+			-- 我的nvim-cmp 配合 luansip 使用的时候,不能展开函数的参数
+			-- https://github.com/hrsh7th/cmp-nvim-lsp
+			-- 根据上面的这个 Readme 里面的描述,修改如下, 加入 capabilities = capabilities, 解决这个问题
+			require("lspconfig").clangd.setup{
+			    -- cmd = {"clangd"},
+			    single_file_support = true,
+				capabilities = capabilities
+			}
+			-- require("lspconfig").ccls.setup({
+			-- 	-- single_file_support = true,
+			-- 	init_options = {
+			-- 		cache = {
+			-- 			directory = "/tmp/ccls-cache",
+			-- 		},
+			-- 		client = {
+			-- 			snippetSupport = true,
+			-- 		},
+			-- 		completion = {
+			-- 			placeholder = true,
+			-- 		},
+			-- 		compilationDatabaseDirectory = "build",
+			-- 		index = {
+			-- 			threads = 0,
+			-- 		},
+			-- 		clang = {
+			-- 			-- excludeArgs = { "-frounding-math"} ;
+			-- 			extraArgs = { "-std=c++20", "-DDEBUG" },
+			-- 		},
+			-- 	},
+			-- })
 			require("lspconfig").tsserver.setup({})
 			require("lspconfig").jedi_language_server.setup({})
 			require("lspconfig").lua_ls.setup({

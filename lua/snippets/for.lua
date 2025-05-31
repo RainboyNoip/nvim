@@ -1,10 +1,13 @@
 local ls = require("luasnip")
+local lse = require("luasnip.extras")
 local s = ls.snippet
 local sn = ls.snippet_node
 local i = ls.insert_node
 local t = ls.text_node
 local c = ls.choice_node
+local d = ls.dynamic_node
 local f = ls.function_node
+local rep = lse.rep 
 local fmt = require("luasnip.extras.fmt").fmt
 
 
@@ -146,4 +149,21 @@ return {
     )
     -- 3d array
 
+
+    --- 2025-5-31 我创建的动态的节点
+    --- 2025-5-31 我创建的函数的节点
+    -- s("for", {
+    --     t("for("),
+    --     t("int "),
+    --     i(1, "i"),
+    --     t(" = "),
+    --     i(2, "0"),
+    --     t("; "),
+    --     rep(1),
+    --     t("<="),
+    --     t(""20;++i;){"),
+    --     t({"","\t"}),
+    --     i(0),
+    --     t({"","}"}),
+    -- }),
 }
